@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -24,7 +25,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const HomePage: () => React$Node = () => {
+const HomePage: () => React$Node = props => {
+  const onPressFunction = () => {
+    props.navigation.openDrawer();
+  };
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -32,7 +36,18 @@ const HomePage: () => React$Node = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
+          <TouchableOpacity onPress={onPressFunction} >
+            <View
+              style={{
+                backgroundColor: '#333333',
+                width: 30,
+                height: 30,
+                marginLeft: 10,
+              }}
+            />
+          </TouchableOpacity>
           <Header />
+
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
@@ -41,6 +56,13 @@ const HomePage: () => React$Node = () => {
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionDescription}>
+                Edit <Text style={styles.highlight}>App.js</Text> to change this
+                screen and then come back to see your edits.
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Step Two</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.

@@ -51,7 +51,7 @@ export default function App() {
             drawerStyle={{
               backgroundColor: 'transparent',
             }}
-            drawerType={'slide'}
+            drawerType={'permanent'}
             initialRouteName="Home"
             overlayColor="transparent"
             drawerContent={props => {
